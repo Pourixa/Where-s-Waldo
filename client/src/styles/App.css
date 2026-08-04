@@ -1,0 +1,41 @@
+main {
+  background-color: var(--social-bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: calc(25vw);
+  padding-right: calc(25vw);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+  height: calc(100% / 4);
+  display: flex;
+  flex-direction: column;
+    transition: all ease 0.3s;
+  
+}
+
+a > img {
+  object-fit: cover;
+  width: calc(100%-2em);
+  height: calc(100% - 2em);
+  filter: blur(0.5px  );
+  border: 5px var(--accent-bg) solid;
+}
+
+a > div {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--accent-bg);
+  height:100%;
+  padding: 0.5em;
+}
+
+a:hover {
+  transform: translate(0, -5px);
+  cursor: pointer;
+}
+
