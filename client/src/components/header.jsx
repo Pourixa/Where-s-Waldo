@@ -4,14 +4,22 @@ export default function Header({game}) {
     const [time,setTime] = useState(0)
     useEffect(() => {
         const inter = setInterval(() => {
-            setTime(time + 1)
+            setTime(prev => prev + 1)
         },1000)
-        return clearInterval(inter)
-    })
+        return () => clearInterval(inter)
+    },[])
     return <header>
-        <h1>{game.name}</h1>
-        <span>
-            {time}
-        </span>
+        <div>
+            <a className="btn" href="/">RETURN TO MENU</a>
+            <h1>{game.name.replace("-"," ")}</h1>
+        </div>
+        <div>
+            <span>
+                {parseInt(time/3600).toString().padStart(2,"0")} : {parseInt(time/60).toString().padStart(2,"0")} : {(time%60).toString().padStart(2,"0")}
+            </span>
+            <button className="btn">
+                LEADERBOARD
+            </button>
+        </div>
     </header>
 }

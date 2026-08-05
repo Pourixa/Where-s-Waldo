@@ -5,6 +5,7 @@
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
+    --accent-lowAlpha:#c084fcc7;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
@@ -33,4 +34,23 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+.btn {
+      background-color: var(--accent-bg);
+    color: var(--accent);
+    padding: 0.5em;
+    border-radius: 10px;
+    border: var(--border) 2px solid;
+}
+.btn:hover {
+  cursor: pointer;
+  transform: translate(0, -5px);
+  transition: all ease 0.3s;
+}
+
+footer {
+  display: flex;
+  padding: 1em;
+  justify-content: center;
 }
