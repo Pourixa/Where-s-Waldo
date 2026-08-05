@@ -1,4 +1,4 @@
-main {
+.main {
   background-color: var(--social-bg);
   height: 100vh;
   display: flex;
@@ -8,7 +8,7 @@ main {
   padding-right: calc(25vw);
 }
 
-a {
+.a {
   text-decoration: none;
   color: var(--text);
   height: calc(100% / 4);
@@ -18,15 +18,14 @@ a {
   
 }
 
-a > img {
+.a > img {
   object-fit: cover;
-  width: calc(100%-2em);
   height: calc(100% - 2em);
   filter: blur(0.5px  );
   border: 5px var(--accent-bg) solid;
 }
 
-a > div {
+.a > div {
   display: flex;
   justify-content: space-between;
   background-color: var(--accent-bg);
@@ -34,7 +33,7 @@ a > div {
   padding: 0.5em;
 }
 
-a:hover {
+.a:hover {
   transform: translate(0, -5px);
   cursor: pointer;
 }

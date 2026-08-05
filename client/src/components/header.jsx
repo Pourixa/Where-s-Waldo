@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import styles from "../styles/Game.module.css";
 
 export default function Header({game}) {
     const [time,setTime] = useState(0)
@@ -8,9 +9,9 @@ export default function Header({game}) {
         },1000)
         return () => clearInterval(inter)
     },[])
-    return <header>
+    return <header className={styles.header}>
         <div>
-            <a className="btn" href="/">RETURN TO MENU</a>
+            <a  className="btn" href="/">RETURN TO MENU</a>
             <h1>{game.name.replace("-"," ")}</h1>
         </div>
         <div>

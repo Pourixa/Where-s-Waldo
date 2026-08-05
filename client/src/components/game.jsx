@@ -1,17 +1,17 @@
 import {useParams} from "react-router"
 import Header from "./header"
 import Footer from "./footer"
-import "../styles/game.css"
+import styles from "../styles/Game.module.css";
 import { TransformWrapper, TransformComponent,useControls } from "react-zoom-pan-pinch";
 import waldo from "../assets/waldo3.jpg"
-import { MdOutlineZoomIn,MdOutlineZoomOut  } from "react-icons/md";
+import { MdOutlineZoomIn,MdOutlineZoomOut} from "react-icons/md";
 import { TbZoomReset } from "react-icons/tb";
 
     function Toolbar() {
         const { zoomIn, zoomOut, resetTransform } = useControls();
 
         return (
-            <div id="toolbar">
+            <div className={styles.toolbar} id="toolbar">
             <div>
                 <MdOutlineZoomIn onClick={() => zoomIn()} />
                 <MdOutlineZoomOut onClick={() => zoomOut()} />
@@ -31,8 +31,8 @@ export default function Game() {
         }
     return <>
         <Header game={game}/>
-        <main>
-            <div id="leaderboard">
+        <main className={styles.main}>
+            <div className={styles.leaderboard} id="leaderboard">
                 <h4>LEADER BOARD</h4>
                 <div>
                 </div>
@@ -40,10 +40,10 @@ export default function Game() {
             <TransformWrapper>
                 <Toolbar/>
                 <TransformComponent >
-                    <img id="gameImg" src={game.src} alt={game.name} />
+                    <img className={styles.gameImg} id="gameImg" src={game.src} alt={game.name} />
                 </TransformComponent>
             </TransformWrapper>
-            <div id="targets">
+            <div className={styles.targets} id="targets">
             <div>
                 <img src={game.t1} alt="target1" />
                 <span>FOUND</span>    

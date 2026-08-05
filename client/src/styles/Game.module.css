@@ -1,25 +1,25 @@
-header {
+.header {
     display: flex;
     padding: 1em;
     padding-left: 12.5%;
     padding-right: 12.5%;
     justify-content: space-between;
     align-items: center;
-
+    background-color: var(--social-bg);
 }
 
-header > div {
+.header > div {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-grow: 1;
 }
 
-header button {
+.header button {
     font-size: large;
 }
 
-main {
+.main {
     display: flex;
     flex-direction: row;
     padding: 1em;
@@ -27,27 +27,27 @@ main {
     position: relative;
 }
 
-#leaderboard,#targets {
+.leaderboard,.targets {
     position: absolute;
     z-index: 99;
 }
 
-#leaderboard , #targets {
+.leaderboard , .targets {
     display: none;
 }
 
-#toolbar svg {
+.toolbar svg {
     width: 32px;
     height: 32px;
     color: var(--bg);
 }
 
 
-#toolbar svg:hover {
+.toolbar svg:hover {
     cursor: pointer;
 }
 
-#toolbar {
+.toolbar {
     width: 0;
     left: 50%;
     height: fit-content;
@@ -56,7 +56,7 @@ main {
     z-index: 99;
 }
 
-#toolbar > div {
+.toolbar > div {
     transform: translate(-50%);
         margin-top: 10px;
     padding: 10px;
@@ -67,6 +67,6 @@ background-color: var(--accent-lowAlpha);
     display: flex;
 }
 
-main > div:nth-of-type(3):hover {
+.main > div:nth-of-type(3):hover {
     cursor: move;
 }

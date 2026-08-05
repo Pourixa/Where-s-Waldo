@@ -42,15 +42,17 @@
     padding: 0.5em;
     border-radius: 10px;
     border: var(--border) 2px solid;
+    transition: all ease 0.3s;
+    text-decoration: none;
 }
 .btn:hover {
   cursor: pointer;
   transform: translate(0, -5px);
-  transition: all ease 0.3s;
 }
 
 footer {
   display: flex;
   padding: 1em;
   justify-content: center;
+  background-color: var(--social-bg);
 }
