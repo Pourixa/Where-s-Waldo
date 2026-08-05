@@ -1,8 +1,6 @@
 .header {
     display: flex;
     padding: 1em;
-    padding-left: 12.5%;
-    padding-right: 12.5%;
     justify-content: space-between;
     align-items: center;
     background-color: var(--social-bg);
@@ -19,6 +17,15 @@
     font-size: large;
 }
 
+.header > div:last-of-type {
+    flex-direction: column;
+    text-align: center;
+    & > h4 {
+        color: var(--accent);
+    }
+}
+
+
 .main {
     display: flex;
     flex-direction: row;
@@ -33,16 +40,24 @@
     /* display: none; */
 }
 
-.targets {
+.targets,.selectTarget {
     display: flex;
     position: absolute;
-    left: 300px;
     margin-top: 10px;
-    transform: translate(-25%);
     gap: 0.5em;
 }
 
-.targets > div {
+.selectTarget{
+    z-index: 100;
+    flex-direction: column;
+    transform: translate(0);
+}
+
+.selectTarget.close {
+    display: none;
+}
+
+.targets > div , .selectTarget >div{
     width: 100px;
     height: 100px;
     background-color: var(--accent-lowAlpha);
@@ -50,12 +65,16 @@
     color: var(--accent-lowAlpha);
 }
 
-.targets > div > img {
+.targets > div > img ,.selectTarget > div > img {
     width: 100%;
     height: 100%;
 }
 
+.targets {
+    position: relative;
+        justify-self: left;
 
+}
 
 
 .toolbar svg {
@@ -89,8 +108,12 @@ background-color: var(--accent-lowAlpha);
     display: flex;
 }
 
-.main > div:nth-of-type(3):hover {
+.main > div:nth-of-type(2):hover {
     cursor: move;
+}
+
+.main > div:nth-of-type(2) > div >img {
+    pointer-events: all;
 }
 
 .record {
@@ -141,4 +164,8 @@ background-color: var(--accent-lowAlpha);
 
 .leaderboard > h4 {
     text-align: center;
+}
+
+.gameImg {
+    width: 100vw;
 }

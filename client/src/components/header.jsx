@@ -10,6 +10,17 @@ export default function Header({game}) {
         return () => clearInterval(inter)
     },[])
     return <header className={styles.header}>
+        <div className={styles.targets} id="targets">
+            <div>
+                <img src={game.t1} alt="target1" />    
+            </div>
+            <div>
+                <img src={game.t2} alt="target2" />        
+            </div>
+            <div>
+                <img src={game.t3} alt="target3" />    
+            </div>
+        </div>
         <div>
             <a  className="btn" href="/">RETURN TO MENU</a>
             <h1>{game.name.replace("-"," ")}</h1>
@@ -21,6 +32,10 @@ export default function Header({game}) {
             <button className="btn" command="show-modal" commandfor= "leaderboard">
                 LEADERBOARD
             </button>
+        </div>
+        <div>
+            <h4>TIP:</h4>
+            <p>DOUBLE CLICK ON THE POSITION <br /> YOU WANT TO SELECT A TARGET</p>
         </div>
     </header>
 }
