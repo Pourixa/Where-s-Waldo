@@ -18,7 +18,7 @@ export default function Header({game}) {
             <span>
                 {parseInt(time/3600).toString().padStart(2,"0")} : {parseInt(time/60).toString().padStart(2,"0")} : {(time%60).toString().padStart(2,"0")}
             </span>
-            <button className="btn">
+            <button className="btn" command="show-modal" commandfor= "leaderboard">
                 LEADERBOARD
             </button>
         </div>
