@@ -1,7 +1,7 @@
 import styles from '../styles/App.module.css'
-import waldo1 from "../assets/waldo1.jpeg"
-import waldo2 from "../assets/waldo2.jpeg"
-import waldo3 from  "../assets/waldo3.jpg"
+import waldo1 from "../assets/robotCity.jpg"
+import waldo2 from "../assets/spaceCon.jpeg"
+import waldo3 from "../assets/vault0.jpeg"
 import GameArticle from './gameArticle'
 function App() {
   const games = []

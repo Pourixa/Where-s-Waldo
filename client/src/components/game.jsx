@@ -3,8 +3,10 @@ import Header from "./header"
 import Footer from "./footer"
 import styles from "../styles/Game.module.css";
 import { TransformWrapper, TransformComponent,useControls } from "react-zoom-pan-pinch";
-import waldo from "../assets/waldo3.jpg"
-import ebisu from "../assets/t1.png"
+import waldo from "../assets/spaceCon.jpeg"
+import ebisu from "../assets/spaceCon/t1.png"
+import mer from "../assets/spaceCon/t3.png"
+import egg from "../assets/spaceCon/t2.png"
 import { MdOutlineZoomIn,MdOutlineZoomOut} from "react-icons/md";
 import { TbZoomReset } from "react-icons/tb";
 import PlayerRecord from "./playerRecord";
@@ -28,8 +30,8 @@ export default function Game() {
     const game = {
             name:"Robot-City",
             t1:ebisu,
-            t2:ebisu,
-            t3:ebisu,
+            t2:egg,
+            t3:mer,
             src:waldo,
         }
     function selectTarget(e) {
@@ -42,13 +44,16 @@ export default function Game() {
         <Header game={game}/>
         <div style={{left:show.x , top:show.y}} className={`${styles.selectTarget} ${show.show ? "" : styles.close}`} id="selectTargets">
             <div>
-                <img data-id={1} src={game.t1} alt="target1" />    
+                <img data-id={1} src={game.t1} alt="target1" />   
+                <p>{game.t1.name}</p> 
             </div>
             <div>
-                <img data-id={2} src={game.t2} alt="target2" />        
+                <img data-id={2} src={game.t2} alt="target2" />    
+                <p>{game.t1.name}</p>     
             </div>
             <div>
-                <img data-id={3} src={game.t3} alt="target3" />    
+                <img data-id={3} src={game.t3} alt="target3" />  
+                <p>{game.t1.name}</p>  
             </div>
         </div>
         <main className={styles.main}>
