@@ -1,8 +1,14 @@
 const express = require("express");
 const gameRouter = require("./routes/game");
+require("dotenv").config()
 const app = express();
+const cors = require('cors');
 
 
+
+app.use(cors(
+    {origin:process.env.REACT}
+))
 app.use(express.json())
 
 

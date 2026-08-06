@@ -29,15 +29,14 @@ model target {
   ytop Int  
   xbut Int
   ybut Int
-  gameID String @unique
+  gameID String
   game game @relation(fields: [gameID] , references: [name])
+  @@id([name,gameID])
 }
 
 model game {
   name String @id
   src String
-  width Int
-  height Int
   targets target[]
   players player[]
 }

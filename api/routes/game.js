@@ -8,7 +8,9 @@ gameRouter.param("name", getGame);
 
 gameRouter.get("/", async (req, res, next) => {
     try {
-        const games = await db.prisma.game.findMany();
+        const games = await db.prisma.game.findMany({include:{
+            players:true
+        }});
         res.json(games);
     } catch (err) {
         next(err);
