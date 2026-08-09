@@ -25,10 +25,10 @@ model player {
 model target {
   name String 
   src String 
-  xtop Int
-  ytop Int  
-  xbut Int
-  ybut Int
+  xtop Float
+  ytop Float  
+  xbut Float
+  ybut Float
   gameID String
   game game @relation(fields: [gameID] , references: [name])
   @@id([name,gameID])

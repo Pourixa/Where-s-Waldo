@@ -27,34 +27,35 @@ gameRouter.get("/:name/player", getPlayers, (req, res) => {
 
 gameRouter.post("/:name", async (req, res, next) => {
     try {
-        const target = await db.prisma.target.findUnique({
-            where: {
-                gameID_name: {
-                    gameID: req.game.name,
-                    name: req.body.name,
-                },
-            },
-        });
+            const target = await db.prisma.target.findUnique({
+                where: {
+                    name_gameID: {
+                        name: req.body.name,
+                        gameID: req.game.name
+                    }
+                }
+            });
 
         if (!target) {
             return next(new apiError("Target not found.", 404));
         }
 
-        const { x, y } = req.body;
+        const { x, y } = req.body.click;
 
         const found =
-            target.xtop < x &&
-            x < target.xbut &&
-            target.ytop < y &&
-            y < target.ybut;
+            (target.xtop < x &&
+            x < target.xbut) &&
+           ( target.ytop < y &&
+            y < target.ybut);
 
         if (!found) {
             return res.status(404).json({
                 message: `That's not ${req.body.name}. Keep looking.`,
+                found:found
             });
         }
 
-        res.json(target);
+        res.json({message:"You found " +target.name,found:found});
     } catch (err) {
         next(err);
     }

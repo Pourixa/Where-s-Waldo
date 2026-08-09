@@ -6,10 +6,12 @@ async function getGame(req, res, next) {
         const game = await db.prisma.game.findUnique({
             where: {
                 name: req.params.name
-            },
+            },include:{
+                targets:true,
+                players:true
+            }
 
         })
-
         if (!game) {
             return next(new apiError("Game not found.", 404))
         }

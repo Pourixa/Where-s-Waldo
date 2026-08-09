@@ -56,3 +56,25 @@ footer {
   justify-content: center;
   background-color: var(--social-bg);
 }
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.loading > svg {
+  width: 64px;
+  height: 64px;
+animation: loading 1s linear  infinite forwards;}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
