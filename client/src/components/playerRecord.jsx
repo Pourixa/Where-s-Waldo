@@ -4,7 +4,7 @@ export default function PlayerRecord({player,rank}) {
     const date = new Date(player.timeRecorded)
 
     return <div className={styles.record}>
-        <h4>{rank} - {player.username}</h4>
+        <h4>{rank+1} - {player.username}</h4>
         <div>
             <p>Record : {parseInt(player.record / 3600)
             .toString()
