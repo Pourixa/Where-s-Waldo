@@ -17,7 +17,7 @@ const games = [
         targets: [
             {
                 name: "Leon S. Kennedy",
-                src: "https://raw.githubusercontent.com/Pourixa/Where-s-Waldo/refs/heads/main/client/src/assets/vault0/t1.png",
+                src: "https://raw.githubusercontent.com/Pourixa/Where-s-Waldo/refs/heads/main/client/src/assets/vault0/t3.png",
                 xtop: 0.121354,
                 ytop: 0.914760,
                 xbut: 0.152604,
@@ -25,7 +25,7 @@ const games = [
             },
             {
                 name: "Stewie Griffin",
-                src: "https://raw.githubusercontent.com/Pourixa/Where-s-Waldo/refs/heads/main/client/src/assets/vault0/t2.png",
+                src: "https://raw.githubusercontent.com/Pourixa/Where-s-Waldo/refs/heads/main/client/src/assets/vault0/t1.png",
                 xtop: 0.376042,
                 ytop: 0.613653,
                 xbut: 0.390625,
@@ -33,7 +33,7 @@ const games = [
             },
             {
                 name: "Guts",
-                src: "https://raw.githubusercontent.com/Pourixa/Where-s-Waldo/refs/heads/main/client/src/assets/vault0/t3.png",
+                src: "https://raw.githubusercontent.com/Pourixa/Where-s-Waldo/refs/heads/main/client/src/assets/vault0/t2.png",
                 xtop: 0.475000,
                 ytop: 0.884871,
                 xbut: 0.515625,
