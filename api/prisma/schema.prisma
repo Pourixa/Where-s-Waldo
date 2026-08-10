@@ -14,7 +14,7 @@ datasource db {
 
 model player {
   username String
-  record BigInt 
+  record Int 
   timeRecorded DateTime @default(now())
   gameID String
   game game @relation(fields: [gameID] , references: [name])

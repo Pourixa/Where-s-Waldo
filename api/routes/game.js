@@ -65,7 +65,7 @@ gameRouter.post("/:name/player", async (req, res, next) => {
     try {
         const existingPlayer = await db.prisma.player.findUnique({
             where: {
-                gameID_username: {
+                username_gameID: {
                     gameID: req.game.name,
                     username: req.body.username,
                 },
@@ -75,7 +75,6 @@ gameRouter.post("/:name/player", async (req, res, next) => {
         if (existingPlayer) {
             return next(new apiError("Player tag already exists.", 403));
         }
-
         const player = await db.prisma.player.create({
             data: {
                 gameID: req.game.name,

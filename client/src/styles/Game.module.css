@@ -230,3 +230,45 @@ width: 100%;
     z-index: 999999
 }
 
+.gameOver {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    color: var(--accent);
+    width: fit-content;
+    background-color: var(--social-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    transform: translate(-50%,-50%);
+}
+
+.gameOver > input {
+    padding: 1em;
+}
+
+.gameOver > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+button {
+    padding: 1em;
+    border-radius: 1em;
+    border: var(--border) 2px solid;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.gameOver  p {
+    color: black;
+    padding: 0.5em;
+    border-radius: 1em;
+}

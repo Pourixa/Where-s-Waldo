@@ -1,4 +1,4 @@
-    import {useParams} from "react-router"
+    import {useNavigate, useParams} from "react-router"
     import Header from "./header"
     import Footer from "./footer"
     import styles from "../styles/Game.module.css";
@@ -36,6 +36,9 @@ function makeurl(path) {
         const [founded ,setFounded] = useState([false,false,false,0])
         const [gameOver,setGameOver] = useState(false)
         const [notif,setNotif] = useState(null)
+        const [time, setTime] = useState(0);
+        const [error,setError] = useState(null)
+        const navig = useNavigate()
        async function isOnTarget(id,target,click) 
             {
                 const res = await fetch(makeurl(`/game/${game.name}`),
@@ -85,12 +88,47 @@ function makeurl(path) {
       <h1>LOADING ...</h1>
     </div>
   </main>) 
-  if (gameOver)
-    return <h1>
-        Hi
-    </h1>
+    if (gameOver)
+        return <main>
+            <div  className={styles.gameOver}>
+                <h1>You've found them all !</h1>
+                    <h4>If you want your name on the leaderboard fill the form.</h4>
+                    <input id="username" type="text" placeholder="username" minLength={2} />
+                    {
+                    error && <p id="error" style={{backgroundColor:error.color}}>
+                            {error.message}
+                        </p>
+                        }
+                    <div>
+                        <button onClick={async () => {
+                        const value = document.querySelector("#username").value
+                        if(value.length < 2 ) {
+                            return setError({message:"Minimum username length is 2",color:"red"})
+                        } 
+                        const res = await fetch(makeurl(`/game/${game.name}/player`),{headers:{
+                            "Content-Type": "application/json"
+                        },method:"post",body:JSON.stringify({
+                            username:value,
+                            record:time
+                        })})
+                        if(res.ok)
+                        {
+                            setError({message:"You've been added. Redirecting...",color:"green"})
+                            setTimeout(() => navig("/") , 1500)
+                        }
+                        else
+                        {
+                            const js = await res.json()
+                            setError({message:js.message,color:"red"})
+                        }
+                                        }}>ADD ME</button>
+                                        <button onClick={() => navig("/")}>HOME</button>
+                    </div>
+            </div>
+        </main>
+
         return <div onClick={() => {show.show ? setShow(prev => {setClick({x:0,y:0}); return {...prev , show:false}}): ""}}>
-            <Header game={game} founded={founded}/>
+            <Header game={game} founded={founded} time={time} setTime={setTime}/>
             {notif && <article className={styles.notif} style={{backgroundColor:notif.found ? "green" : "red"}}>
                 {notif.message}
             </article>}
@@ -109,12 +147,9 @@ function makeurl(path) {
                 <dialog className={styles.leaderboard} id="leaderboard" close="true">
                     <h4>LEADERBOARD</h4>
                     <div>
-                        <PlayerRecord player={{username:"ee",record:32443,date:"34/23/ee"}}rank={1}/>
-                        <PlayerRecord player={{username:"ee",record:32443,date:"34/23/ee"}}/>
-                        <PlayerRecord player={{username:"ee",record:32443,date:"34/23/ee"}}/>
-                        <PlayerRecord player={{username:"ee",record:32443,date:"34/23/ee"}}/>
-                        <PlayerRecord player={{username:"ee",record:32443,date:"34/23/ee"}}/>
-                        <PlayerRecord player={{username:"ee",record:32443,date:"34/23/ee"}}/>
+                        {game.players.map((player,idx) => {
+                            return  <PlayerRecord player={player } rank={idx} key={player.username}/>
+                        })}                        
                     </div>
                     <button className="btn" commandfor="leaderboard" command="close">CLOSE</button>
                 </dialog>

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/Game.module.css";
 
-export default function Header({ game , founded }) {
-  const [time, setTime] = useState(0);
+export default function Header({ game , founded,time,setTime }) {
   useEffect(() => {
     const inter = setInterval(() => {
       setTime((prev) => prev + 1);

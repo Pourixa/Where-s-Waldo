@@ -8,7 +8,9 @@ async function getGame(req, res, next) {
                 name: req.params.name
             },include:{
                 targets:true,
-                players:true
+                players:{orderBy:{
+                    record:"asc"
+                }}
             }
 
         })

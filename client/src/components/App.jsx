@@ -12,7 +12,7 @@ function App() {
   const [loading,setLoading] = useState(true)
   useEffect(() => {
      (async () => {
-      const games = await ((await fetch( makeurl("/game")  , {cache:"force-cache"} )).json())
+      const games = await ((await fetch( makeurl("/game") )).json())
       setGames(games)
       setLoading(false)
     })()
