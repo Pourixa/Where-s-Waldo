@@ -217,3 +217,16 @@ width: 100%;
 .selectTarget > .founded {
     display: none;
 }
+
+.notif {
+    position: sticky;
+    top: 10px;
+    margin-top: 10px;
+    width: fit-content;
+    padding: 1em;
+    color: black;
+    border-radius: 10px;
+    left: 2em;
+    z-index: 999999
+}
+

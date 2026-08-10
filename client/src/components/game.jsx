@@ -35,6 +35,7 @@ function makeurl(path) {
         const [loading,setLoading] = useState(true)
         const [founded ,setFounded] = useState([false,false,false,0])
         const [gameOver,setGameOver] = useState(false)
+        const [notif,setNotif] = useState(null)
        async function isOnTarget(id,target,click) 
             {
                 const res = await fetch(makeurl(`/game/${game.name}`),
@@ -47,7 +48,6 @@ function makeurl(path) {
                     click:click,
                 }),method:"post"})
                 const js = await res.json();
-                console.log(js)
                 if (js.found)
                     setFounded(prev => {
                         const a = [...prev]
@@ -55,6 +55,7 @@ function makeurl(path) {
                         a[3] += 1
                         return a
                     })
+            setNotif(js)
             setGameOver(founded[3] + 1 === 3)  
             }
         useEffect(() => {
@@ -90,6 +91,9 @@ function makeurl(path) {
     </h1>
         return <div onClick={() => {show.show ? setShow(prev => {setClick({x:0,y:0}); return {...prev , show:false}}): ""}}>
             <Header game={game} founded={founded}/>
+            {notif && <article className={styles.notif} style={{backgroundColor:notif.found ? "green" : "red"}}>
+                {notif.message}
+            </article>}
             <div style={{left:show.x , top:show.y}} className={`${styles.selectTarget} ${show.show ? "" : styles.close}`} id="selectTargets">
                 <div className={founded[0] ? styles.founded : ""}>
                     <img  src={game.targets[0].src} alt="target1" onClick={() => isOnTarget(0,game.targets[0],click)}/>   
